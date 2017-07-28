@@ -17,6 +17,10 @@ set tabstop=4
 export GOPATH=/home/funakubo_hiroaki/.go
 
 # alias
+alias vi='/usr/bin/vim'
+alias g='git'
+alias gc='git branch | grep -v bk | sed "s/[*| ] //g" | peco | xargs -n1 git checkout ; git branch'
+
 function ch() {
 	echo $1
 	base="/usr/local/apache2/htdocs/sem-portal/sem_staging/$1/searchsuite"

@@ -15,6 +15,16 @@ set nowrap
 set ruler
 set title
 set tabstop=4
+" □ ◯oとかをきれいに表示
+set ambiwidth=double
+" コマンドモードの補完
+"set wildmenu
+" コマンドモードでの補完設定
+"set wildmode=longest:full,list
+" カーソル行をハイライト重い
+"set cursorline
+" 矩形選択で自由に移動する
+set virtualedit+=block
 
 " 自動コメント無効
 augroup auto_comment_off
@@ -38,6 +48,9 @@ NeoBundle 'jistr/vim-nerdtree-tabs'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'terryma/vim-expand-region'
+"NeoBundle "ctrlpvim/ctrlp.vim"
 call neobundle#end()
 
 """ neocomplcache Settings.
@@ -60,11 +73,18 @@ if has('conceal')
 	set conceallevel=2 concealcursor=i
 endif
 
+""" PHP用の辞書読込 for mk_phpdic.php
+autocmd FileType php  :set dictionary=~/.vim/php.dict
+""" PHP Syntax Check
+"autocmd FileType php set makeprg=php\ -l\ %
+"autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
+
 """ quickrun Settings.
 let g:quickrun_config={'*': {'split': 'vertical'}}
 
 """ colorscheme Settings.
-""colorscheme molokai
+syntax on
+"colorscheme molokai
 
 """ indentLine Settings.
 set list listchars=tab:\|\ 
@@ -74,12 +94,6 @@ let g:indentLine_faster = 1
 "nnoremap <silent><C-t> :NERDTreeToggle<CR>
 map <C-t> <plug>NERDTreeTabsToggle<CR>
 nnoremap <Esc><Esc> :<C-u>nohlsearch<cr><Esc>
-
-""" PHP用の辞書読込 for mk_phpdic.php
-autocmd FileType php  :set dictionary=~/.vim/php.dict
-""" PHP Syntax Check
-"autocmd FileType php set makeprg=php\ -l\ %
-"autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
 
 " Required:
 filetype plugin on
@@ -133,3 +147,10 @@ map <silent> <C-n> :tabnext<CR>
 " tn 次のタブ
 map <silent> <C-p> :tabprevious<CR>
 " tp 前のタブ
+
+"" easymotion
+
+"" expand-region
+"map K <Plug>(expand_region_expand)
+"map J <Plug>(expand_region_shrink)
+
