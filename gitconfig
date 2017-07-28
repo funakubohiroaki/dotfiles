@@ -1,0 +1,8 @@
+[user]
+	email = funakubo_hiroaki@cyberagent.co.jp
+	name = funakubohiroaki
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
