@@ -18,6 +18,7 @@ export GOPATH=/home/funakubo_hiroaki/.go
 
 # alias
 alias vi='/usr/bin/vim'
+alias ll='/bin/ls -l'
 alias g='git'
 alias gc='git branch | grep -v bk | sed "s/[*| ] //g" | peco | xargs -n1 git checkout ; git branch'
 
