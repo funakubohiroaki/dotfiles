@@ -1,5 +1,5 @@
 #!/bin/sh
 
-ln -sf ./bashrc ~/.bashrc
-ln -sf ./vimrc ~/.vimrc
-ln -sf ./gitconfig ~/.gitconfig
+ln -sf `pwd`/bashrc ~/.bashrc
+ln -sf `pwd`/vimrc ~/.vimrc
+ln -sf `pwd`/gitconfig ~/.gitconfig
