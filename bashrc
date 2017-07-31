@@ -9,12 +9,15 @@ fi
 export EDITOR=vi
 
 # PATH
-export PATH=$PATH:/home/funakubo_hiroaki/ruby-2.1.2/bin:/home/funakubo_hiroaki/bin:/home/funakubo_hiroaki/go/bin
+export PATH=$PATH:~/ruby-2.1.2/bin:~/bin
 
 # tab
 set tabstop=4
 
-export GOPATH=/home/funakubo_hiroaki/.go
+# Go
+export GOROOT=/usr/local/go
+export GOPATH=~/go
+export PATH=$PATH:$GOROOT/bin
 
 # alias
 alias vi='/usr/bin/vim'

@@ -1,0 +1,270 @@
+#!/bin/sh
+
+SSH_KEY="/Users/a13974/.ssh/searchsuite_rsa"
+SSH_USR="funakubo_hiroaki"
+SSH_KEY_OPENSTACK="/Users/a13974/.ssh/openstack_rsa"
+
+echo "####################################################"
+echo "## Other"
+echo "####################################################"
+echo "## 0) funakubo 1) openstack"
+echo "####################################################"
+echo "## SearchSuite"
+echo "####################################################"
+echo "## 10) staging 11) webstaging01 12) dbstaging01"
+echo "####################################################"
+echo "## 20) web04   21) web05   22) web06   23) web07"
+echo "## 24) web08   25) web09   26) web10"
+echo "## 30) batch04 31) batch05 32) batch06 33) batch07"
+echo "## 34) batch08 35) batch09 36) batch10"
+echo "####################################################"
+echo "## 40) web01   41) web02"
+echo "## 50) batch01 51) batch02 52) batch03 53) batch_parent"
+echo "####################################################"
+echo "## 60) main-master      61) main-slave"
+echo "## 62) storage-master   63) storage-slave"
+echo "## 64) structure-master 65) structure-slave"
+echo "## 70) report11         71) report12"
+echo "## 72) structure01      73) structure02"
+echo "####################################################"
+echo "## 80) caadvzab002      81) caadvjen002"
+echo "## 82) proxy01          83) ftp"
+echo "## 84) nfs01            85) nfs02"
+echo "## 86) redis01"
+echo "####################################################"
+echo "## CA DataFeed Manager"
+echo "####################################################"
+echo "## 90)  dfm-deploy"
+echo "####################################################"
+
+printf "Input HostName No: "
+
+while read HOST
+do
+
+case $HOST in
+"0"|"funakubo")
+ssh funakubo_hiroaki@funakubo
+break
+;;
+
+"1"|"openstack")
+ssh -i $SSH_KEY_OPENSTACK cloud-user@openstack
+break
+;;
+
+## for SearchSuite
+"10"|"staging")
+ssh funakubo_hiroaki@staging
+break
+;;
+
+"11"|"webstaging01")
+ssh -i $SSH_KEY $SSH_USR@webstaging01
+break
+;;
+
+"12"|"dbstaging01")
+ssh -i $SSH_KEY $SSH_USR@dbstaging01
+break
+;;
+
+"40"|"web01")
+ssh -i $SSH_KEY $SSH_USR@web01
+break
+;;
+
+"41"|"web02")
+ssh -i $SSH_KEY $SSH_USR@web02
+break
+;;
+
+"50"|"batch01")
+ssh -i $SSH_KEY $SSH_USR@batch01
+break
+;;
+
+"51"|"batch02")
+ssh -i $SSH_KEY $SSH_USR@batch02
+break
+;;
+
+"52"|"batch03")
+ssh -i $SSH_KEY $SSH_USR@batch03
+break
+;;
+
+"53"|"batch_parent")
+ssh -i $SSH_KEY $SSH_USR@batch_parent
+break
+;;
+
+"20"|"web04")
+ssh -i $SSH_KEY $SSH_USR@web04
+break
+;;
+
+"21"|"web05")
+ssh -i $SSH_KEY $SSH_USR@web05
+break
+;;
+
+"22"|"web06")
+ssh -i $SSH_KEY $SSH_USR@web06
+break
+;;
+
+"23"|"web07")
+ssh -i $SSH_KEY $SSH_USR@web07
+break
+;;
+
+"24"|"web08")
+ssh -i $SSH_KEY $SSH_USR@web08
+break
+;;
+
+"25"|"web09")
+ssh -i $SSH_KEY $SSH_USR@web09
+break
+;;
+
+"26"|"web10")
+ssh -i $SSH_KEY $SSH_USR@web10
+break
+;;
+
+"30"|"batch04")
+ssh -i $SSH_KEY $SSH_USR@batch04
+break
+;;
+
+"31"|"batch05")
+ssh -i $SSH_KEY $SSH_USR@batch05
+break
+;;
+
+"32"|"batch06")
+ssh -i $SSH_KEY $SSH_USR@batch06
+break
+;;
+
+"33"|"batch07")
+ssh -i $SSH_KEY $SSH_USR@batch07
+break
+;;
+
+"34"|"batch08")
+ssh -i $SSH_KEY $SSH_USR@batch08
+break
+;;
+
+"35"|"batch09")
+ssh -i $SSH_KEY $SSH_USR@batch09
+break
+;;
+
+"36"|"batch10")
+ssh -i $SSH_KEY $SSH_USR@batch10
+break
+;;
+
+"60"|"main-master")
+ssh -i $SSH_KEY $SSH_USR@main-master
+break
+;;
+
+"61"|"main-slave")
+ssh -i $SSH_KEY $SSH_USR@main-slave
+break
+;;
+
+"62"|"storage-master")
+ssh -i $SSH_KEY $SSH_USR@storage-master
+break
+;;
+
+"63"|"storage-slave")
+ssh -i $SSH_KEY $SSH_USR@storage-slave
+break
+;;
+
+"64"|"structure-master")
+ssh -i $SSH_KEY $SSH_USR@structure-master
+break
+;;
+
+"65"|"structure-slave")
+ssh -i $SSH_KEY $SSH_USR@structure-slave
+break
+;;
+
+"70"|"report11")
+ssh -i $SSH_KEY $SSH_USR@report11
+break
+;;
+
+"71"|"report12")
+ssh -i $SSH_KEY $SSH_USR@report12
+break
+;;
+
+"72"|"structure01")
+ssh -i $SSH_KEY $SSH_USR@structure01
+break
+;;
+
+"73"|"structure02")
+ssh -i $SSH_KEY $SSH_USR@structure02
+break
+;;
+
+"80"|"caadvzab002")
+ssh -i $SSH_KEY $SSH_USR@caadvzab002
+break
+;;
+
+"81"|"caadvjen002")
+ssh -i $SSH_KEY $SSH_USR@caadvjen002
+break
+;;
+
+"82"|"proxy01")
+ssh -i $SSH_KEY $SSH_USR@proxy01
+break
+;;
+
+"83"|"ftp")
+ssh -i $SSH_KEY $SSH_USR@ftp
+break
+;;
+
+"84"|"nfs01")
+ssh -i $SSH_KEY $SSH_USR@nfs01
+break
+;;
+
+"85"|"nfs02")
+ssh -i $SSH_KEY $SSH_USR@nfs02
+break
+;;
+
+"86"|"redis01")
+ssh -i $SSH_KEY $SSH_USR@redis01
+break
+;;
+
+## for Data Feed Manager
+"90"|"dfm-deploy")
+ssh -i $SSH_KEY $SSH_USR@dfm-deploy
+break
+;;
+
+*)
+echo "No Route to Host"
+printf "Input HostName: "
+continue
+;;
+esac
+
+done
