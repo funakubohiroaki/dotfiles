@@ -49,7 +49,7 @@ break
 ;;
 
 "1"|"openstack")
-ssh -i $SSH_KEY_OPENSTACK cloud-user@openstack
+ssh -i $SSH_KEY centos@openstack
 break
 ;;
 
@@ -60,7 +60,7 @@ break
 ;;
 
 "11"|"webstaging01")
-ssh -i $SSH_KEY $SSH_USR@webstaging01
+ssh -i $SSH_KEY $SSH_USR@sem-webstaging01
 break
 ;;
 
