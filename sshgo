@@ -179,13 +179,13 @@ ssh -i $SSH_KEY $SSH_USR@main-slave
 break
 ;;
 
-"62"|"storage-master")
-ssh -i $SSH_KEY $SSH_USR@storage-master
+"62"|"strage-master")
+ssh -i $SSH_KEY $SSH_USR@strage-master
 break
 ;;
 
-"63"|"storage-slave")
-ssh -i $SSH_KEY $SSH_USR@storage-slave
+"63"|"strage-slave")
+ssh -i $SSH_KEY $SSH_USR@strage-slave
 break
 ;;
 

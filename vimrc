@@ -25,6 +25,8 @@ set ambiwidth=double
 "set cursorline
 " 矩形選択で自由に移動する
 set virtualedit+=block
+" backupdir
+set backupdir=~/.vim/tmp
 
 " 自動コメント無効
 augroup auto_comment_off
@@ -50,8 +52,11 @@ NeoBundle 'tomasr/molokai'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'terryma/vim-expand-region'
-"NeoBundle "ctrlpvim/ctrlp.vim"
-"NeoBundle 'fatih/vim-go'
+"NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'fatih/vim-go'
+"NeoBundle 'vim-jp/vim-go-extra'
+NeoBundle 'posva/vim-vue'
+NeoBundle 'apple-swift', {'type': 'nosync', 'base': '~/.vim/bundle/manual'} 
 call neobundle#end()
 
 """ neocomplcache Settings.
@@ -80,12 +85,29 @@ autocmd FileType php  :set dictionary=~/.vim/php.dict
 "autocmd FileType php set makeprg=php\ -l\ %
 "autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
 
+" vim-go Settings.
+"" mapping  
+""" go runのキーマッピング  
+au FileType go nmap gr (go-run)  
+""" go testのキーマッピング  
+"au FileType go nmap gt (go-test)  
+"" highlight  
+let g:go_highlight_functions = 1  
+let g:go_highlight_methods = 1  
+let g:go_highlight_structs = 1  
+let g:go_highlight_interfaces = 1  
+let g:go_highlight_operators = 1  
+let g:go_highlight_build_constraints = 1  
+"" GoFmt時にインポートするパッケージを整理(GoFmtはファイル書き込み時に自動的に実行される)  
+let g:go_fmt_command = "goimports"  
+
 """ quickrun Settings.
 let g:quickrun_config={'*': {'split': 'vertical'}}
 
 """ colorscheme Settings.
 syntax on
-"colorscheme molokai
+colorscheme molokai
+set t_Co=256
 
 """ indentLine Settings.
 set list listchars=tab:\|\ 
@@ -154,4 +176,3 @@ map <silent> <C-p> :tabprevious<CR>
 "" expand-region
 "map K <Plug>(expand_region_expand)
 "map J <Plug>(expand_region_shrink)
-
