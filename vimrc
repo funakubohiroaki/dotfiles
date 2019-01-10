@@ -91,6 +91,9 @@ autocmd FileType php  :set dictionary=~/.vim/php.dict
 au FileType go nmap gr (go-run)  
 """ go testのキーマッピング  
 "au FileType go nmap gt (go-test)  
+"" go-devのキーマッピング  
+"au FileType go nmap <C-]> (go-def)  
+"au FileType go nmap <C-[> (go-def-pop)  
 "" highlight  
 let g:go_highlight_functions = 1  
 let g:go_highlight_methods = 1  

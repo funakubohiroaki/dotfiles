@@ -1,0 +1,173 @@
+#!/bin/sh
+
+echo "####################################################"
+echo "##  0) oahu-frontend"
+echo "##  1) oahu-backend"
+echo "##  2) oahu-db"
+echo "##  3) oahu-redis"
+echo "####################################################"
+echo "##  4) ebisu-frontend"
+echo "##  5) ebisu-backend"
+echo "##  6) ebisu-db"
+echo "##  7) ebisu-redis"
+echo "####################################################"
+echo "##  8) saigon-frontend"
+echo "##  9) saigon-auth"
+echo "## 10) saigon-facebook"
+echo "## 11) saigon-lap"
+echo "## 12) saigon-twitter"
+echo "## 13) saigon-yinfeed"
+echo "## 14) saigon-batch"
+echo "## 15) saigon-worker"
+echo "## 16) saigon-db"
+echo "## 17) saigon-redis"
+echo "####################################################"
+echo "## 18) satsuma-frontend"
+echo "## 19) satsuma-backend"
+echo "## 20) satsuma-db"
+echo "## 21) satsuma-redis"
+echo "####################################################"
+echo "## 22) tasktracker-app"
+echo "## 23) tasktracker-db"
+echo "## 24) tasktracker-redis"
+echo "####################################################"
+
+printf "Input Pods No: "
+
+while read PODS
+do
+
+case $PODS in
+"0"|"oahu-frontend")
+kubectl exec -it `kubectl get pods | grep oahu-frontend | cut -f 1 -d " "` sh
+break
+;;
+
+"1"|"oahu-backend")
+kubectl exec -it `kubectl get pods | grep oahu-backend | cut -f 1 -d " "` sh
+break
+;;
+
+"2"|"oahu-db")
+kubectl exec -it `kubectl get pods | grep oahu-db | cut -f 1 -d " "` sh
+break
+;;
+
+"3"|"oahu-redis")
+kubectl exec -it `kubectl get pods | grep oahu-redis | cut -f 1 -d " "` sh
+break
+;;
+
+"4"|"ebisu-frontend")
+kubectl exec -it `kubectl get pods | grep ebisu-frontend | cut -f 1 -d " "` sh
+break
+;;
+
+"5"|"ebisu-backend")
+kubectl exec -it `kubectl get pods | grep ebisu-backend | cut -f 1 -d " "` sh
+break
+;;
+
+"6"|"ebisu-db")
+kubectl exec -it `kubectl get pods | grep ebisu-db | cut -f 1 -d " "` sh
+break
+;;
+
+"7"|"ebisu-redis")
+kubectl exec -it `kubectl get pods | grep ebisu-redis | cut -f 1 -d " "` sh
+break
+;;
+
+"8"|"saigon-frontend")
+kubectl exec -it `kubectl get pods | grep saigon-frontend | cut -f 1 -d " "` sh
+break
+;;
+
+"9"|"saigon-auth")
+kubectl exec -it `kubectl get pods | grep saigon-auth | cut -f 1 -d " "` sh
+break
+;;
+
+"10"|"saigon-facebook")
+kubectl exec -it `kubectl get pods | grep saigon-facebook | cut -f 1 -d " "` sh
+break
+;;
+
+"11"|"saigon-lap")
+kubectl exec -it `kubectl get pods | grep saigon-lap | cut -f 1 -d " "` sh
+break
+;;
+
+"12"|"saigon-twitter")
+kubectl exec -it `kubectl get pods | grep saigon-twitter | cut -f 1 -d " "` sh
+break
+;;
+
+"13"|"saigon-yinfeed")
+kubectl exec -it `kubectl get pods | grep saigon-yinfeed | cut -f 1 -d " "` sh
+break
+;;
+
+"14"|"saigon-batch")
+kubectl exec -it `kubectl get pods | grep saigon-batch | cut -f 1 -d " "` sh
+break
+;;
+
+"15"|"saigon-worker")
+kubectl exec -it `kubectl get pods | grep saigon-worker | cut -f 1 -d " "` sh
+break
+;;
+
+"16"|"saigon-db")
+kubectl exec -it `kubectl get pods | grep saigon-db | cut -f 1 -d " "` sh
+break
+;;
+
+"17"|"saigon-redis")
+kubectl exec -it `kubectl get pods | grep saigon-redis | cut -f 1 -d " "` sh
+break
+;;
+
+"18"|"satsuma-frontend")
+kubectl exec -it `kubectl get pods | grep satsuma-frontend | cut -f 1 -d " "` sh
+break
+;;
+
+"19"|"satsuma-backend")
+kubectl exec -it `kubectl get pods | grep satsuma-backend | cut -f 1 -d " "` sh
+break
+;;
+
+"20"|"satsuma-db")
+kubectl exec -it `kubectl get pods | grep satsuma-db | cut -f 1 -d " "` sh
+break
+;;
+
+"21"|"satsuma-redis")
+kubectl exec -it `kubectl get pods | grep satsuma-redis | cut -f 1 -d " "` sh
+break
+;;
+
+"22"|"tasktracker-app")
+kubectl exec -it `kubectl get pods | grep tasktracker-app | cut -f 1 -d " "` sh
+break
+;;
+
+"23"|"tasktracker-db")
+kubectl exec -it `kubectl get pods | grep tasktracker-db | cut -f 1 -d " "` sh
+break
+;;
+
+"24"|"tasktracker-redis")
+kubectl exec -it `kubectl get pods | grep tasktracker-redis | cut -f 1 -d " "` sh
+break
+;;
+
+*)
+echo "No Route to Pods"
+printf "Input Pods: "
+continue
+;;
+esac
+
+done

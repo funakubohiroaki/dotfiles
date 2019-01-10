@@ -18,8 +18,11 @@ export PATH=$PATH:~/ruby-2.1.2/bin:~/bin:~/.nodebrew/current/bin:~/google-cloud-
 # tab
 set tabstop=4
 
-# Git
+# completion
 source /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-completion.bash
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
 
 # Go
 export GOROOT=/usr/local/go
@@ -49,7 +52,7 @@ export TASK_TRACKER_DIR=/Users/a13974/github.com/CyberAgent/one-task-tracker
 export OAHU_INFRA_DIR=/Users/a13974/github.com/CyberAgent/oahu-ops
 export OAHU_DOC_DIR=/Users/a13974/github.com/CyberAgent/oahu-doc
 export OAHU_FRONTEND_DIR=/Users/a13974/github.com/CyberAgent/oahu-front
-export OAHU_BACKEND_DIR=/Users/a13974/go/src/github.com/CyberAgent/oahu-api
+export OAHU_BACKEND_DIR=/Users/a13974/github.com/CyberAgent/oahu-api
 
 # alias
 alias vi='/usr/bin/vim'
@@ -65,6 +68,7 @@ alias oahu-doc='cd ~/github.com/CyberAgent/oahu-doc'
 alias oahu-front='cd ~/github.com/CyberAgent/oahu-front'
 alias oahu-ios='cd ~/github.com/CyberAgent/oahu-ios'
 alias oahu-ops='cd ~/github.com/CyberAgent/oahu-ops'
+alias oahu-issues='cd ~/github.com/CyberAgent/oahu-issues'
 alias unsetd='unset ${!DOCKER_*}'
 alias satsuma_dev='cloud_sql_proxy -instances=cyberagent-018:asia-northeast1:satsuma-db-dev=tcp:33066'
 alias satsuma_stg='cloud_sql_proxy -instances=cyberagent-018:asia-northeast1:satsuma-db-staging=tcp:33067'
@@ -86,6 +90,10 @@ alias saigon-twitter='cd $SAIGON_TWITTER_DIR'
 alias saigon-yinfeed='cd $SAIGON_YINFEED_DIR'
 alias saigon-worker='cd $SAIGON_WORKER_DIR'
 alias tasktracker='cd $TASK_TRACKER_DIR'
+alias docker-oahu-backend='kubectl exec -it `kubectl get pods | grep oahu-backend | cut -f 1 -d " "` sh'
+alias docker-oahu-frontend='kubectl exec -it `kubectl get pods | grep oahu-frontend | cut -f 1 -d " "` sh'
+alias docker-oahu-db='kubectl exec -it `kubectl get pods | grep oahu-db | cut -f 1 -d " "` sh'
+alias docker-oahu-redis='kubectl exec -it `kubectl get pods | grep oahu-redis | cut -f 1 -d " "` sh'
 
 function ch() {
 	echo $1
