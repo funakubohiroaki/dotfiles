@@ -21,12 +21,15 @@ set ambiwidth=double
 "set wildmenu
 " コマンドモードでの補完設定
 "set wildmode=longest:full,list
-" カーソル行をハイライト重い
-"set cursorline
 " 矩形選択で自由に移動する
 set virtualedit+=block
 " backupdir
 set backupdir=~/.vim/tmp
+" カーソル位置の背景色を変える
+set cursorcolumn
+"set cursorline
+" ステータス行を常に表示
+set laststatus=2
 
 " 自動コメント無効
 augroup auto_comment_off
@@ -46,17 +49,20 @@ NeoBundle 'Shougo/neocomplcache'
 "NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'jistr/vim-nerdtree-tabs'
+" 括弧を自動クローズ
 "NeoBundle 'Townk/vim-autoclose'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'Lokaltog/vim-easymotion'
+" 選択領域
 NeoBundle 'terryma/vim-expand-region'
 "NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'fatih/vim-go'
 "NeoBundle 'vim-jp/vim-go-extra'
 NeoBundle 'posva/vim-vue'
-NeoBundle 'apple-swift', {'type': 'nosync', 'base': '~/.vim/bundle/manual'} 
+"NeoBundle 'apple-swift', {'type': 'nosync', 'base': '~/.vim/bundle/manual'} 
+NeoBundle 'tpope/vim-abolish'
 call neobundle#end()
 
 """ neocomplcache Settings.
@@ -120,6 +126,9 @@ let g:indentLine_faster = 1
 "nnoremap <silent><C-t> :NERDTreeToggle<CR>
 map <C-t> <plug>NERDTreeTabsToggle<CR>
 nnoremap <Esc><Esc> :<C-u>nohlsearch<cr><Esc>
+
+""" vim-vue Settings.
+autocmd FileType vue syntax sync fromstart
 
 " Required:
 filetype plugin on
