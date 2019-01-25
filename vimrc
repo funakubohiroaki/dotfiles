@@ -163,7 +163,7 @@ let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
 set showtabline=2 " 常にタブラインを表示
 
 " Open and Close
-nnoremap <silent><C-t> :NERDTreeToggle<CR>
+map <C-t> <plug>NERDTreeTabsToggle<CR>
 " The prefix key.
 nnoremap    [Tag]   <Nop>
 nmap    t [Tag]
