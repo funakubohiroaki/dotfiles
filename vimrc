@@ -26,10 +26,11 @@ set virtualedit+=block
 " backupdir
 set backupdir=~/.vim/tmp
 " カーソル位置の背景色を変える
-set cursorcolumn
+"set cursorcolumn
 "set cursorline
 " ステータス行を常に表示
 set laststatus=2
+set statusline=%<[%n]%m%r%h%w%y\ %F\ %{fugitive#statusline()}%=\ %{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}\ %l,%c%V%8P
 
 " 自動コメント無効
 augroup auto_comment_off
@@ -63,6 +64,7 @@ NeoBundle 'fatih/vim-go'
 NeoBundle 'posva/vim-vue'
 "NeoBundle 'apple-swift', {'type': 'nosync', 'base': '~/.vim/bundle/manual'} 
 NeoBundle 'tpope/vim-abolish'
+NeoBundle 'tpope/vim-fugitive'
 call neobundle#end()
 
 """ neocomplcache Settings.
@@ -94,12 +96,9 @@ autocmd FileType php  :set dictionary=~/.vim/php.dict
 " vim-go Settings.
 "" mapping  
 """ go runのキーマッピング  
-au FileType go nmap gr (go-run)  
+"au FileType go nmap gr (go-run)  
 """ go testのキーマッピング  
 "au FileType go nmap gt (go-test)  
-"" go-devのキーマッピング  
-"au FileType go nmap <C-]> (go-def)  
-"au FileType go nmap <C-[> (go-def-pop)  
 "" highlight  
 let g:go_highlight_functions = 1  
 let g:go_highlight_methods = 1  
@@ -123,8 +122,6 @@ set list listchars=tab:\|\
 let g:indentLine_faster = 1
 
 """ キー割当 Settings.
-"nnoremap <silent><C-t> :NERDTreeToggle<CR>
-map <C-t> <plug>NERDTreeTabsToggle<CR>
 nnoremap <Esc><Esc> :<C-u>nohlsearch<cr><Esc>
 
 """ vim-vue Settings.
@@ -165,23 +162,26 @@ endfunction "}}}
 let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
 set showtabline=2 " 常にタブラインを表示
 
+" Open and Close
+nnoremap <silent><C-t> :NERDTreeToggle<CR>
 " The prefix key.
 nnoremap    [Tag]   <Nop>
 nmap    t [Tag]
-" Tab jump
+" t1 で1番左のタブ、t2 で1番左から2番目のタブにジャンプ
 for n in range(1, 9)
 	execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
 endfor
-" t1 で1番左のタブ、t2 で1番左から2番目のタブにジャンプ
-
-map <silent> [Tag]c :tablast <bar> tabnew<CR>
 " tc 新しいタブを一番右に作る
-map <silent> [Tag]x :tabclose<CR>
+map <silent> [Tag]c :tablast <bar> tabnew<CR>
 " tx タブを閉じる
-map <silent> <C-n> :tabnext<CR>
+map <silent> [Tag]x :tabclose<CR>
 " tn 次のタブ
-map <silent> <C-p> :tabprevious<CR>
+map <silent> <C-n> :tabnext<CR>
 " tp 前のタブ
+map <silent> <C-p> :tabprevious<CR>
+" 文字化け対応
+let g:NERDTreeNodeDelimiter = "\u00a0"
+let g:NERDTreeWinSize = 40
 
 "" easymotion
 

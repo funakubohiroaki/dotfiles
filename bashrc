@@ -25,9 +25,28 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 fi
 
 # Go
-export GOROOT=/usr/local/go
+export GOENV_ROOT=$HOME/.goenv
+export GOENV_SHELL=bash
+source $GOENV_ROOT/libexec/../completions/goenv.bash
+command goenv rehash 2>/dev/null
+goenv() {
+  local command
+  command="$1"
+  if [ "$#" -gt 0 ]; then
+    shift
+  fi
+
+  case "$command" in
+  rehash|shell)
+    eval "$(goenv "sh-$command" "$@")";;
+  *)
+    command goenv "$command" "$@";;
+  esac
+}
+#export GOROOT=/usr/local/go
 export GOPATH=~/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+#export PATH=$PATH:$GOENV_ROOT/bin:$GOENV_ROOT/shims:$GOROOT/bin:$GOPATH/bin
+export PATH=$PATH:$GOENV_ROOT/bin:$GOENV_ROOT/shims:$GOPATH/bin
 
 # gem
 export GEM_HOME=$HOME/.gem
@@ -61,6 +80,7 @@ alias ldd='otool -L'
 #alias g='git'
 #alias gc='git branch | grep -v bk | sed "s/[*| ] //g" | peco | xargs -n1 git checkout ; git branch'
 #alias B='`git branch -a | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g"`'
+alias k='kubectl'
 alias oahu-api='cd $GOPATH/src/github.com/CyberAgent/oahu-api'
 alias oahu-worker='cd $GOPATH/src/github.com/CyberAgent/oahu-worker'
 alias oahu-design='cd ~/github.com/CyberAgent/oahu-design'
