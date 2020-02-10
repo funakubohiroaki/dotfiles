@@ -6,10 +6,11 @@ filetype off
 filetype plugin indent off
 
 """ Initial Settings.
-" ビジュアルモードで選択するとクリップボードに入れる
-set guioptions+=a
+"set guioptions+=a " ビジュアルモードで選択するとクリップボードに入れる
+"set clipboard+=unnamed
 set hlsearch
 set noautoindent
+set nobackup
 set noswapfile
 set nowrap
 set ruler
@@ -31,6 +32,10 @@ set backupdir=~/.vim/tmp
 " ステータス行を常に表示
 set laststatus=2
 set statusline=%<[%n]%m%r%h%w%y\ %F\ %{fugitive#statusline()}%=\ %{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}\ %l,%c%V%8P
+" 検索パターンに大文字小文字を区別しない
+set ignorecase
+" 検索パターンに大文字を含んでいたら大文字小文字を区別する
+set smartcase
 
 " 自動コメント無効
 augroup auto_comment_off
@@ -65,6 +70,7 @@ NeoBundle 'posva/vim-vue'
 "NeoBundle 'apple-swift', {'type': 'nosync', 'base': '~/.vim/bundle/manual'} 
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-fugitive'
+"NeoBundle 'alvan/vim-closetag'
 call neobundle#end()
 
 """ neocomplcache Settings.
@@ -188,3 +194,6 @@ let g:NERDTreeWinSize = 40
 "" expand-region
 "map K <Plug>(expand_region_expand)
 "map J <Plug>(expand_region_shrink)
+
+"" vim-closetag Settings
+let g:closetag_filenames = '*.html,*.vue'

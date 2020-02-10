@@ -13,7 +13,7 @@ export EDITOR=vi
 export GOOGLE_APPLICATION_CREDENTIALS=~/.config/gcloud/application_default_credentials.json
 
 # PATH
-export PATH=$PATH:~/ruby-2.1.2/bin:~/bin:~/.nodebrew/current/bin:~/google-cloud-sdk/bin:/usr/local/Cellar/mysql/8.0.12/bin
+export PATH=$PATH:~/ruby-2.1.2/bin:~/bin:~/.nodebrew/current/bin:~/google-cloud-sdk/bin:/usr/local/Cellar/mysql/8.0.12/bin:/usr/local/opt/mysql-client/bin
 
 # tab
 set tabstop=4
@@ -27,6 +27,7 @@ fi
 # Go
 export GOENV_ROOT=$HOME/.goenv
 export GOENV_SHELL=bash
+export GOENV_DISABLE_GOPATH=1
 source $GOENV_ROOT/libexec/../completions/goenv.bash
 command goenv rehash 2>/dev/null
 goenv() {
@@ -43,9 +44,7 @@ goenv() {
     command goenv "$command" "$@";;
   esac
 }
-#export GOROOT=/usr/local/go
 export GOPATH=~/go
-#export PATH=$PATH:$GOENV_ROOT/bin:$GOENV_ROOT/shims:$GOROOT/bin:$GOPATH/bin
 export PATH=$PATH:$GOENV_ROOT/bin:$GOENV_ROOT/shims:$GOPATH/bin
 
 # gem
@@ -80,6 +79,8 @@ alias ldd='otool -L'
 #alias g='git'
 #alias gc='git branch | grep -v bk | sed "s/[*| ] //g" | peco | xargs -n1 git checkout ; git branch'
 #alias B='`git branch -a | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g"`'
+alias gb='git branch'
+alias gs='git status'
 alias k='kubectl'
 alias oahu-api='cd $GOPATH/src/github.com/CyberAgent/oahu-api'
 alias oahu-worker='cd $GOPATH/src/github.com/CyberAgent/oahu-worker'

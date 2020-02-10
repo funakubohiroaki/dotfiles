@@ -129,7 +129,7 @@ set nomousefocus
 " 入力時にマウスポインタを隠す (nomousehide:隠さない)
 set mousehide
 " ビジュアル選択(D&D他)を自動的にクリップボードへ (:help guioptions_a)
-"set guioptions+=a
+set guioptions+=a
 
 "---------------------------------------------------------------------------
 " メニューに関する設定:
