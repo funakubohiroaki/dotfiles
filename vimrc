@@ -71,6 +71,7 @@ NeoBundle 'posva/vim-vue'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-fugitive'
 "NeoBundle 'alvan/vim-closetag'
+"NeoBundle 'davidhalter/jedi-vim'
 call neobundle#end()
 
 """ neocomplcache Settings.
