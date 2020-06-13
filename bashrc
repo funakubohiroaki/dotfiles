@@ -83,6 +83,7 @@ export TASK_TRACKER_DIR=/Users/a13974/github.com/CyberAgent/one-task-tracker
 export TM_BACKEND_DIR=/Users/a13974/github.com/CyberAgent/task-manager-back
 export TM_FRONTEND_DIR=/Users/a13974/github.com/CyberAgent/task-manager-front
 export TM_INFRA_DIR=/Users/a13974/github.com/CyberAgent/task-manager-docs
+export AITD_COLLECTOR_DIR=/Users/a13974/github.com/CyberAgent/aitd-collector
 export AITD_DATA_DIR=/Users/a13974/github.com/CyberAgent/aitd-data-service
 export AITD_ESTIMATOR_DIR=/Users/a13974/github.com/CyberAgent/aitd-estimator
 export AITD_ESTIMATOR_2_DIR=/Users/a13974/github.com/CyberAgent/aitd-estimator-v2
@@ -144,6 +145,7 @@ alias vertex-backend='cd ~/github.com/CyberAgent/vertex-api-go'
 alias vertex-frontend='cd ~/github.com/CyberAgent/vertex-front'
 alias aitd_demo='cloud_sql_proxy -instances=cyberagent-315:asia-northeast1:aitd-cloudsql-demo=tcp:0.0.0.0:33069'
 alias aitd_prd='cloud_sql_proxy -instances=cyberagent-315:asia-northeast1:aitd-cloudsql-prd=tcp:33070'
+alias aitd-collector='cd $AITD_COLLECTOR_DIR'
 alias aitd-data='cd $AITD_DATA_DIR'
 alias aitd-estimator='cd $AITD_ESTIMATOR_DIR'
 alias aitd-estimator2='cd $AITD_ESTIMATOR_2_DIR'
