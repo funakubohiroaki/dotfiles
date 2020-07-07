@@ -189,6 +189,7 @@ map <silent> <C-p> :tabprevious<CR>
 " 文字化け対応
 let g:NERDTreeNodeDelimiter = "\u00a0"
 let g:NERDTreeWinSize = 40
+let g:NERDTreeShowHidden=1
 
 "" easymotion
 
