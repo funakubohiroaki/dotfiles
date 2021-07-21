@@ -13,7 +13,7 @@ export EDITOR=vi
 export GOOGLE_APPLICATION_CREDENTIALS=~/.config/gcloud/application_default_credentials.json
 
 # PATH
-export PATH=$PATH:~/ruby-2.1.2/bin:~/bin:~/.nodebrew/current/bin:~/google-cloud-sdk/bin:/usr/local/Cellar/mysql/8.0.12/bin:/usr/local/opt/mysql-client/bin:/usr/local/scala-2.12.10/bin
+export PATH=$PATH:~/ruby-2.1.2/bin:~/bin:~/.nodebrew/current/bin:~/google-cloud-sdk/bin:/usr/local/Cellar/mysql/8.0.12/bin:/usr/local/opt/mysql-client/bin:/usr/local/scala-2.12.10/bin:/usr/local/Cellar/libpq/13.2/bin:/usr/local/Cellar/mecab/0.996/libexec/mecab
 export SCALA_HOME=/usr/local/scala-2.12.10
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
 
@@ -49,6 +49,8 @@ goenv() {
 export GOPATH=~/go
 export PATH=$PATH:$GOENV_ROOT/bin:$GOENV_ROOT/shims:$GOPATH/bin
 
+# poetry
+export PATH=$PATH:$HOME/.poetry/bin
 # pyenv
 export PYENV_ROOT=${HOME}/.pyenv
 if [ -d "${PYENV_ROOT}" ]; then
@@ -87,11 +89,22 @@ export AITD_COLLECTOR_DIR=/Users/a13974/github.com/CyberAgent/aitd-collector
 export AITD_DATA_DIR=/Users/a13974/github.com/CyberAgent/aitd-data-service
 export AITD_ESTIMATOR_DIR=/Users/a13974/github.com/CyberAgent/aitd-estimator
 export AITD_ESTIMATOR_2_DIR=/Users/a13974/github.com/CyberAgent/aitd-estimator-v2
+export AITD_ESTIMATOR_PROXY_DIR=/Users/a13974/github.com/CyberAgent/aitd-estimator-proxy
 export AITD_GENERATOR_DIR=/Users/a13974/github.com/CyberAgent/aitd-generator
 export AITD_INFRA_DIR=/Users/a13974/github.com/CyberAgent/aitd-infra
 export AITD_MIGRATION_DIR=/Users/a13974/github.com/CyberAgent/aitd-migration
 export AITD_WEB_DIR=/Users/a13974/github.com/CyberAgent/aitd-web-service
 export AITD_WORD_DIR=/Users/a13974/github.com/CyberAgent/aitd-word-embedding-service
+export AITD_REFEREE_DIR=/Users/a13974/github.com/CyberAgent/aitd-referee
+# openstack izanami
+export OS_AUTH_URL=http://os-api.izanami.openstack.ar.adtech.local:5000/v3
+export OS_USERNAME=aitd
+export OS_PASSWORD=Pa8fg7VFVdXPmzCUts4bQU4T3AencNW
+export OS_USER_DOMAIN_NAME=default
+export OS_PROJECT_DOMAIN_NAME=default
+export OS_PROJECT_NAME=aitd
+export OS_IDENTITY_API_VERSION=3
+export OS_IMAGE_API_VERSION=2
 
 # alias
 alias vi='/usr/bin/vim'
@@ -145,15 +158,21 @@ alias vertex-backend='cd ~/github.com/CyberAgent/vertex-api-go'
 alias vertex-frontend='cd ~/github.com/CyberAgent/vertex-front'
 alias aitd_demo='cloud_sql_proxy -instances=cyberagent-315:asia-northeast1:aitd-cloudsql-demo=tcp:0.0.0.0:33069'
 alias aitd_prd='cloud_sql_proxy -instances=cyberagent-315:asia-northeast1:aitd-cloudsql-prd=tcp:33070'
+alias old_aitd_generator='cloud_sql_proxy -instances=cyberagent-315:us-west1:aitd-generator=tcp:0.0.0.0:33071'
+alias aitd_generator='cloud_sql_proxy -instances=cyberagent-418:us-west1:aitd-generator=tcp:0.0.0.0:33072'
 alias aitd-collector='cd $AITD_COLLECTOR_DIR'
 alias aitd-data='cd $AITD_DATA_DIR'
 alias aitd-estimator='cd $AITD_ESTIMATOR_DIR'
 alias aitd-estimator2='cd $AITD_ESTIMATOR_2_DIR'
+alias aitd-estimator-proxy='cd $AITD_ESTIMATOR_PROXY_DIR'
 alias aitd-generator='cd $AITD_GENERATOR_DIR'
 alias aitd-infra='cd $AITD_INFRA_DIR'
 alias aitd-migration='cd $AITD_MIGRATION_DIR'
 alias aitd-web='cd $AITD_WEB_DIR'
 alias aitd-word='cd $AITD_WORD_DIR'
+alias aitd-referee='cd $AITD_REFEREE_DIR'
+alias cyberagent-315='gcloud config set account atid-account@cyberagent-315.iam.gserviceaccount.com; export GOOGLE_APPLICATION_CREDENTIALS=~/.config/gcloud/cyberagent-315-d7e77084e1ea.json'
+alias cyberagent-418='gcloud config set account aitd-generator@cyberagent-418.iam.gserviceaccount.com; export GOOGLE_APPLICATION_CREDENTIALS=~/.config/gcloud/cyberagent-418-3f5e33c4a07f.json'
 
 function ch() {
 	echo $1
@@ -174,3 +193,4 @@ function ch() {
 	alias fcd='cd "$(find $base -type d | peco)"'
 }
 ch b_funakubo
+aitd-generator
